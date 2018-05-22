@@ -77,3 +77,4 @@ char ***ppp=pp;   //指向三级指针
 
 printf("%s",**++ppp);   //解引到一级
 printf("%s",*++*++ppp); //解引到一级
+//"CAMPUS" "CAMPUS"
