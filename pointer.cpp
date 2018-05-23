@@ -67,7 +67,14 @@ char * (*fun[3])(char *p);
 //----函数指针数组指针-----
 char * (* (*fun)[3])(char *p);
 /*---一级建数组指针，二级说明是函数指针---*/
-  
+ 
+//----动态建立二维数组---
+ //为邻接矩阵开辟空间和赋初值
+   arc = new int*[this->vexnum];
+   dis = new Dis[this->vexnum];
+   for (int i = 0; i < this->vexnum; i++) {
+     arc[i]=new int[this->vexnum];
+   }
 
 //=========面试题====
 /*-----1--------*/
