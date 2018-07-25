@@ -1,4 +1,4 @@
-//懒汉线程安全
+//懒汉线程安全----双重加锁，自己调用建static变量
 class Singleton
 {
 public:
@@ -23,7 +23,7 @@ private:
 Singleton* Singleton::ps = NULL;
 
 
-//------恶汉本身就安全----
+//------恶汉本身就安全----main函数前就建好了static
 class singleton
 {
 protected:
