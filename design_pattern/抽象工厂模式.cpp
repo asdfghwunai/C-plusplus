@@ -17,7 +17,7 @@ Win下面也有winButton和winText，unixButton和unixText必须在一个系统u
      
     #include "stdafx.h"
     #include<typeinfo>
-    // "AbstractProductA" 草食动物
+    // "AbstractProductA" 草食动物                     //实体工厂 类和子类
     class Herbivore
     {
     };
@@ -65,7 +65,7 @@ Win下面也有winButton和winText，unixButton和unixText必须在一个系统u
     		printf("Wolf eats %s\n",typeid(h).name());
     	}
     };
-     
+     //====================================抽象工厂   类和子类
     // "AbstractFactory"
     class ContinentFactory
     {
@@ -113,7 +113,7 @@ Win下面也有winButton和winText，unixButton和unixText必须在一个系统u
     	}
     };
      
-     
+   //================================  
      
     // "Client"
     class AnimalWorld
@@ -142,7 +142,7 @@ Win下面也有winButton和winText，unixButton和unixText必须在一个系统u
     int _tmain(int argc, _TCHAR* argv[])
     {
     	// Create and run the Africa animal world
-    	ContinentFactory *africa = new AfricaFactory();
+    	ContinentFactory *africa = new AfricaFactory();       //最大的抽象工厂基类 ，下面是子类
     	AnimalWorld *world = new AnimalWorld( africa );
     	world->RunFoodChain();
      
