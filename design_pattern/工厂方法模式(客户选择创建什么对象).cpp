@@ -40,7 +40,7 @@ class IFactory
 {
 public:
 	IFactory(void);
-	virtual ~IFactory(void);    //基类虚函数不实现可以吗？？？
+	virtual ~IFactory(void);    //基类虚函数不实现可以吗？？？查了一下貌似要实现啊
  
 	virtual IProduct* getProduct();     //后面子类可重写
 };
