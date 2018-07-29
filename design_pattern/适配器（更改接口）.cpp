@@ -18,7 +18,7 @@
 using namespace std;
  
  
-class Person
+class Person                       //作为下面的类型
 {
 public:
 	Person(string name, int age) :name(name), age(age) {}
@@ -26,7 +26,7 @@ public:
 	int age;
  
 };
-struct MyPrint:public binary_function<Person,int,void>
+struct MyPrint:public binary_function<Person,int,void>     //作为适配器的模板类型
 {
 	void operator()(const Person p1, int val1) const
 	{
@@ -38,14 +38,14 @@ template<class _Fn2>
 class MyBind2nd
 {
 public:
-	MyBind2nd(typename _Fn2 Op, typename _Fn2::second_argument_type v)
+	MyBind2nd(typename _Fn2 Op, typename _Fn2::second_argument_type v)     //_Fn2现在是作为类型作用域，Op是对象
 	{
 		this->Op = Op;
 		this->_Value = v;
 	}
 	typename _Fn2::result_type operator()(typename _Fn2::first_argument_type val)
 	{
-		return this->Op(val, this->_Value);
+		return this->Op(val, this->_Value);    			//一切皆对象
 	}
 private:
 	typename _Fn2 Op;
@@ -54,9 +54,9 @@ private:
  
  
 template<class _Fn2,class _Fy>
-MyBind2nd<_Fn2> MyBinder(_Fn2  m, _Fy val)
+MyBind2nd<_Fn2> MyBinder(_Fn2  m, _Fy val)    //这是个函数
 {
-	return MyBind2nd<_Fn2>(m, val);
+	return MyBind2nd<_Fn2>(m, val);            //这是个对象
 }
  
 int main(void)
