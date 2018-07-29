@@ -40,7 +40,7 @@ class IFactory
 {
 public:
 	IFactory(void);
-	virtual ~IFactory(void);
+	virtual ~IFactory(void);    //基类虚函数不实现可以吗？？？
  
 	virtual IProduct* getProduct();     //后面子类可重写
 };
@@ -71,7 +71,7 @@ public:
 	virtual IProduct* getProduct();
 };
 
-//===============
+//===============子类实现
     #include "StdAfx.h"
     #include "IPadFactory.h"
     #include"IPad.h"
