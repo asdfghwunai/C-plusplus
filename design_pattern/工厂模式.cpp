@@ -3,7 +3,7 @@
 可以是抽象类或者接口，只定义相应的规范或操作，不涉及具体的创建或实现细节。
 */
 
-//=========================
+//==============================定义子类和基类
 #pragma once
 class IProduct
 {
@@ -32,7 +32,7 @@ public:
 	~IPhone(void);
 };
 
-//===================
+//===================工厂类和子类，用到上面的对象
 #pragma once
 #include"IProduct.h"
  
@@ -42,7 +42,7 @@ public:
 	IFactory(void);
 	virtual ~IFactory(void);
  
-	virtual IProduct* getProduct();
+	virtual IProduct* getProduct();     //后面子类可重写
 };
  
  
@@ -110,8 +110,8 @@ public:
     	return new IPhone();
     }
     
-    //================
-    #include "stdafx.h"
+//================   其实是根据基类指针来调用的
+#include "stdafx.h"
 #include"IFactory.h"
 #include"IPadFactory.h"
 #include"IPhoneFactory.h"
