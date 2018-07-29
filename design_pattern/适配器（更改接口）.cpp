@@ -9,3 +9,70 @@
 说白了：其实就好比，你的苹果充电器是香港买的三孔插头，但是你现在在国内，只有二孔插座，那么适配器就是让你的三孔插头变成二孔插头，然后成功和二孔插座适配
 */
 
+#define  _CRT_SECURE_NO_WARNINGS 
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <functional>
+using namespace std;
+ 
+ 
+class Person
+{
+public:
+	Person(string name, int age) :name(name), age(age) {}
+	string name;
+	int age;
+ 
+};
+struct MyPrint:public binary_function<Person,int,void>
+{
+	void operator()(const Person p1, int val1) const
+	{
+		cout << "name:" << p1.name << " age:" << p1.age + val1 << endl;
+	}
+};
+ 
+template<class _Fn2>
+class MyBind2nd
+{
+public:
+	MyBind2nd(typename _Fn2 Op, typename _Fn2::second_argument_type v)
+	{
+		this->Op = Op;
+		this->_Value = v;
+	}
+	typename _Fn2::result_type operator()(typename _Fn2::first_argument_type val)
+	{
+		return this->Op(val, this->_Value);
+	}
+private:
+	typename _Fn2 Op;
+	typename _Fn2::second_argument_type _Value;
+};
+ 
+ 
+template<class _Fn2,class _Fy>
+MyBind2nd<_Fn2> MyBinder(_Fn2  m, _Fy val)
+{
+	return MyBind2nd<_Fn2>(m, val);
+}
+ 
+int main(void)
+{
+	vector<Person> v;
+	Person p1("aaa", 10);
+	Person p2("bbb", 20);
+	Person p3("ccc", 30);
+	Person p4("ddd", 40);
+	v.push_back(p1);
+	v.push_back(p2);
+	v.push_back(p3);
+	v.push_back(p4);
+	for_each(v.begin(), v.end(), MyBinder(MyPrint(),100));
+	
+	cout << endl;
+	system("pause");
+	return 0;
+}
