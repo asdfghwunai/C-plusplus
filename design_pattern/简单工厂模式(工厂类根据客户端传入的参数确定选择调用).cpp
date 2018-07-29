@@ -58,7 +58,7 @@ public:
         std::cout <<  "draw a rectangle" << std::endl;
     }
 };
-//====================3
+//====================3   做出选择
 class ShapeFactory{
 public:
     std::shared_ptr<Shape> getShape(const std::string & shapType){
@@ -74,7 +74,7 @@ public:
 };
 
 //==============4
- ShapeFactory factory;
+    ShapeFactory factory;
     auto shape1 = factory.getShape("Circle");
     shape1->draw();
     auto shape2 = factory.getShape("Square");
