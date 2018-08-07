@@ -2,53 +2,6 @@
 https://blog.csdn.net/happysujia/article/details/51298985
 */
 
-/*
-拷贝构造函数调用时机：
-
-
-1当用类的一个对象初始化该类的另一个对象时.例如:
-
-C/C++ code
-
-    int main()
-    {
-       point A(1,2);
-       point B(A);//用对象A初始化对象B,拷贝构造函数被调用.
-    }
-
-
-2 如果函数的形参是类的对象,调用函数时,进行形参和实参结合时.
-
-C/C++ code
-
-    void f(point p)
-    {
-    }
-    main()
-    {
-       point A(1,2);
-       f(A);//函数的形参为类的对象时,当调用函数时,拷贝构造函数被调用.
-    }
-
-3 如果函数的返回值是类的对象,函数执行完成返回调用者时.
-
-C/C++ code
-
-    point g()
-    {
-       point A(1,2);
-       return A;//函数的返回值是类的对象,返回函数值时,调用拷贝构造函数.
-    }
-    void main()
-    {  
-       point B;
-       B = g();
-    }
-
-4、需要产生一个临时类对象时。
-
-*/
-
 #include <stdio.h>
 class CTemp
 {
