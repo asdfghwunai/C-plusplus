@@ -1,6 +1,10 @@
 /*
 https://blog.csdn.net/happysujia/article/details/51298985
+
+博客的意思是你只要return首先生出一个临时对象(还调用自己的拷贝构造函数)，后面再根据实际确定调不调用拷贝或赋值操作。。。
+实际情况好复杂，我是看不出规律啊
 */
+
 
 #include <stdio.h>
 class CTemp
