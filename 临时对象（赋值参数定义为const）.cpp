@@ -129,4 +129,9 @@ CTemp& operator=(CTemp& t)改为CTemp& operator=(const CTemp& t)，因为函数�
 
 至于为什么和人家的不一样，恐怕有优化过程，你闲的时候看看 https://segmentfault.com/q/1010000007647491
 
-
+但是也有说
+    老式编译器上无此要求，现代编译器上拷贝、赋值的标准形式如下（在类X中的声明）：
+    X(const X& rhs);
+    X& operator=(const X& rhs); 
+所以报错原因可能不是它确实生出const临时对象了，也可能没生出
+好麻烦，到底生出没生出临时对象呢？
