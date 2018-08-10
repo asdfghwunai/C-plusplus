@@ -30,4 +30,7 @@ int main()
 }
 /*
 函数对象
+
+[]：中括号用于控制main函数与内，lamda表达式之前的变量在lamda表达式中的访问形式
+可以看https://blog.csdn.net/lsjseu/article/details/50770637
 */
