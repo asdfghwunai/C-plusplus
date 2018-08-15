@@ -61,7 +61,7 @@ public:
 //====================3   做出选择
 class ShapeFactory{
 public:
-    std::shared_ptr<Shape> getShape(const std::string & shapType){
+    std::shared_ptr<Shape> getShape(const std::string & shapType){     //const类型形参接收const对象，比如字符串或临时变量
         if(shapType == "Square"){
             return std::make_shared<Square>();
         }else if(shapType == "Circle"){
