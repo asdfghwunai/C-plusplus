@@ -8,7 +8,7 @@ char* mystrcpy(char* dst, const char* src)
  
     int size = strlen(src) + 1;
  
-    if (dst < =src || src + size <= dst)
+    if (dst < =src || src + size <= dst)   //两种情况是从前到后
     {
         char* d = dst;
         const char* s = src;
