@@ -70,7 +70,7 @@ int main(void)
 	v.push_back(p2);
 	v.push_back(p3);
 	v.push_back(p4);
-	for_each(v.begin(), v.end(), MyBinder(MyPrint(),100));
+	for_each(v.begin(), v.end(), MyBinder(MyPrint(),100));   //用MyBinder是不是有个自动推导类型呢？
 	
 	cout << endl;
 	system("pause");
