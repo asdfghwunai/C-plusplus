@@ -15,5 +15,5 @@ bool cmpByValue(const pair<int,int> &x,const pair<int,int> &y)
 实现上述比较函数后，可以将函数名作为参数传入sort()，函数名传参时隐式转化为函数指针，这是函数指针实现回调的一种典型用法。
 sort(vec_test.begin(),vec_test.end(),cmpByValue);
 
-//你看这里sort函数就只是取个类型即可，也没形参来接受变量
+//你看这里sort函数就只是取个类型即可，也没形参来接受变量，感觉就是自动推导类型用
 
