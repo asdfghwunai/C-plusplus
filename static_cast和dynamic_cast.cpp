@@ -26,7 +26,7 @@ int main()
     
     Base* pbase2 = new Base();
     Derive * pderive2 = static_cast<Derive *>(pbase2);
-    pderive2->f();  // Base::f()
+    pderive2->f();  // Base::f()     //根还是在基类
     pderive2->f2(); // throw exception "Access violation reading"
 
     delete pbase1;
@@ -63,7 +63,7 @@ pderive1->f(); // Derive::f()
 Base* pbase2 = new Base();
 Derive * pderive2 = dynamic_cast<Derive *>(pbase2); //up-cast
 
-if ( pderive2) // NULL
+if ( pderive2) // NULL  //居然真等于NULL啊，看来不能向下转型。这东西还是听对象的具体类型的，不是看=左边的指针
 {
 pderive2->f();
 pderive2->f2();
